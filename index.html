@@ -3,20 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Calendar</title>
+    <title>Hub of my Calendar</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/7.css">
+
+
+
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #b4b4b6;
-            padding: 20px;
-            text-align: center;
-            margin: 0;
+            font-family: 'Nunito', sans-serif !important;
+            background: linear-gradient(135deg, #e0f7fa, #80deea) !important;
+            padding: 20px !important;
+            margin: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            height: 100vh !important;
+            gap: 20px !important; /* odstęp między divami */
         }
-        .day {
+
+        .me, .Ai {
+            width: 90% !important;
+            height: 45%;
+            padding: 20px !important;
+            text-align: center !important;
+            border-radius: 20px !important;
+            line-height: 1.5 !important;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2) !important;
+            padding: 2.5% !important;
+        }
+
+        .Ai {
+            letter-spacing: 0.1em !important;
+            text-transform: uppercase !important;
+            background: linear-gradient(135deg, #a4a4d6, #c4c4f6) !important;
             font-size: 48px;
             margin-bottom: 20px;
-            background-color: #a4a4d6;
             position: fixed;
             top: 5%;
             padding-bottom: 20px;
@@ -25,10 +49,10 @@
             height: 40%;
             width: 95%;
         }
-        .time {
+
+        .me {
             font-size: 48px;
             margin-top: 20px;
-            background-color: #d4a4a6;
             position: fixed;
             bottom: 5%;
             padding-top: 20px;
@@ -36,35 +60,25 @@
             line-height: 500%;
             height: 40%;
             width: 95%;
+            background: linear-gradient(135deg, #d4a4a6, #f4c4c6) !important;
+            color: linear-gradient(135deg, #d4a4a6, #f4c4c6) !important;
         }
+
+
     </style>
-</head>
 
-<body>
-    <div class="day" id="day">📆day: loading...📆</div>
-    <div class="time" id="time">⏰time: loading...⏰</div>
 
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            function update() {
-                // UNIX time w sekundach
-                const timestamp = Date.now() / 1000;
 
-                // liczba dni od 1970
-                const dni = timestamp / (60 * 60 * 24);
 
-                // aktualny czas
-                const teraz = new Date();
-                const minuta_dnia = teraz.getHours() * 60 + teraz.getMinutes();
 
-                document.getElementById('day').textContent = `📆day: ${Math.floor(dni)}📆`;
-                document.getElementById('time').textContent = `⏰time: ${minuta_dnia}⏰`;
-            }
 
-            update(); // uruchom od razu
-            setInterval(update, 1000); // odświeżaj co sekundę
-        });
-    </script>
-</body>
-</html>
+
+    <div class="Ai" >
+        <a href="html/frutigeraero_WITH_AI.html">created with AI (style: Frutiger Aero)</a>
+    </div>
     
+    <div class="me">
+        <a href="html/bez_AI.html">created without AI (style: my own)</button></a>
+    </div>
+
+</html>
