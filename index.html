@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calendar</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b4b4b6;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+        }
+        .day {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background-color: #a4a4d6;
+            position: fixed;
+            top: 5%;
+            padding-bottom: 20px;
+            text-align: center;
+            line-height: 500%;
+            height: 40%;
+            width: 95%;
+        }
+        .time {
+            font-size: 48px;
+            margin-top: 20px;
+            background-color: #d4a4a6;
+            position: fixed;
+            bottom: 5%;
+            padding-top: 20px;
+            text-align: center;
+            line-height: 500%;
+            height: 40%;
+            width: 95%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="day" id="day">📆day: loading...📆</div>
+    <div class="time" id="time">⏰time: loading...⏰</div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            function update() {
+                // UNIX time w sekundach
+                const timestamp = Date.now() / 1000;
+
+                // liczba dni od 1970
+                const dni = timestamp / (60 * 60 * 24);
+
+                // aktualny czas
+                const teraz = new Date();
+                const minuta_dnia = teraz.getHours() * 60 + teraz.getMinutes();
+
+                document.getElementById('day').textContent = `📆day: ${Math.floor(dni)}📆`;
+                document.getElementById('time').textContent = `⏰time: ${minuta_dnia}⏰`;
+            }
+
+            update(); // uruchom od razu
+            setInterval(update, 1000); // odświeżaj co sekundę
+        });
+    </script>
+</body>
+</html>
+    
