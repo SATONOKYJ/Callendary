@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calendar</title>
+
+    <!-- Google Fonts - Nunito jako aero/frutiger look -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif !important;
+            background: linear-gradient(135deg, #e0f7fa, #80deea) !important;
+            padding: 20px !important;
+            margin: 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            height: 100vh !important;
+            gap: 20px !important; /* odstęp między divami */
+        }
+
+        .day, .time {
+            width: 90% !important;
+            padding: 20px !important;
+            text-align: center !important;
+            border-radius: 20px !important;
+            line-height: 1.5 !important;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2) !important;
+        }
+
+        .day {
+            font-weight: 700 !important;
+            font-size: 4rem !important;
+            letter-spacing: 0.1em !important;
+            text-transform: uppercase !important;
+            background: linear-gradient(135deg, #a4a4d6, #c4c4f6) !important;
+        }
+
+        .time {
+            font-weight: 300 !important;
+            font-size: 4rem !important;
+            letter-spacing: 0.05em !important;
+            background: linear-gradient(135deg, #d4a4a6, #f4c4c6) !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="day" id="day">📆day: loading...📆</div>
+    <div class="time" id="time">⏰time: loading...⏰</div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            function update() {
+                const timestamp = Date.now() / 1000;
+                const dni = timestamp / (60 * 60 * 24);
+                const teraz = new Date();
+                const minuta_dnia = teraz.getHours() * 60 + teraz.getMinutes();
+
+                document.getElementById('day').textContent = `📆day: ${Math.floor(dni)}📆`;
+                document.getElementById('time').textContent = `⏰time: ${minuta_dnia}⏰`;
+            }
+
+            update();
+            setInterval(update, 1000);
+        });
+    </script>
+</body>
+</html>
